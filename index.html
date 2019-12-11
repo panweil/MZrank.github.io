@@ -7,6 +7,8 @@
 
   <title>MZrank</title>
   <link rel="stylesheet" href=".\layui\css\layui.css">
+  <script src=".\layui\lay\modules\jquery.js"></script>
+
   <style>
       /*对layui中的样式进行重写*/
       .layui-tab-content {
@@ -35,11 +37,12 @@
 
 
 
+<div class="layui-layout layui-layout-admin">
+  
 
-
-<div class="layui-side layui-bg-black">
-  <div class="layui-side-scroll">
-    <ul class="layui-nav layui-nav-tree layui-nav-side " lay-filter="test">
+    <div class="layui-side-scroll">
+    <ul class="layui-nav layui-nav-tree layui-nav-side dynamic-navigation" 
+    lay-filter="test" style="position:fixed;width:25%" >
 
       <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
         <li class="layui-nav-item layui-nav-itemed">
@@ -74,23 +77,11 @@
         </li>
 
       </ul>
-
-    </div>
-
     </div>
 
 
 
-
-
-  </div>    
-
-
-
-
-  </div>
-
-  <div class="layui-body show-frame">
+  <div class="layui-body show-frame" style="left:25%">
       <div class="layui-tab layui-tab-brief" lay-allowClose="true" lay-filter="empTab">
       <ul class="layui-tab-title">
           <li class="layui-this "><i class="layui-icon">&#xe68e欢迎访问</i></li>
@@ -99,7 +90,9 @@
           <div class="layui-tab-item layui-show"><h1 style="color: #5FB878">欢迎访问MZrank</h1></div>
       </div>
   </div>
+</div>
 
+</div>
 <script src=".\layui\layui.all.js"></script>
 <!--
 <script src=".\layui\lay\modules\jquery.js"></script>
@@ -126,7 +119,7 @@
             if($("li[lay-id="+id+"]").length==0){
                 element.tabAdd("empTab",{
                     title:$(this).attr("title"),
-                    content:"<iframe src='"+content+"' class='frame' frameborder='0'></iframe>",
+                    content:"<iframe src='"+content+"' class='frame' width='100%' scrolling='yes' height='100%'  frameborder='0'></iframe>",
                     id:id
                 })
             }
@@ -136,6 +129,12 @@
     });
 
 
+ 
+
+
+
+  
+		
   </script> 
 
 
