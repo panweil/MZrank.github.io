@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>SQ1</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+  
+  <script src="../layui/layui.all.js" charset="utf-8"></script>
+
+  
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                <ul class="layui-tab-title">
+
+                  <li class="layui-this">SQ1单次</li>
+
+
+                  <li>SQ1平均</li>
+
+
+
+                </ul>
+                <div class="layui-tab-content" style="height: 100px;">
+                  <div class="layui-tab-item layui-show">
+                      
+                        <fieldset class="layui-elem-field site-demo-button">
+                                <div>
+                                        <a href="https://cubingchina.com/results/rankings?region=China&event=sq1&gender=all&type=single">
+                                          <button type="button" class="layui-btn layui-btn-radius layui-btn-lg">中国SQ1单次排名</button></a>
+                                        <a href="https://cubingchina.com/results/rankings?region=World&event=sq1&gender=all&type=single">
+                                          <button type="button" class="layui-btn layui-btn-normal layui-btn-radius layui-btn-lg" 
+                                          style="float:right">世界SQ1单次排名</button></a>
+                                </div>
+                        </fieldset>
+                
+                        
+                    <table class="layui-hide" id="single"  lay-filter="single"></table>
+                    <script type="text/html" id="ListBar">
+                      <a class="layui-btn layui-btn-xs" lay-event="showindex">查看粗饼主页</a>
+                    </script>
+                                   
+                              
+                    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+                    <script>
+                    layui.use('table', function(){
+                      var table = layui.table;
+                      
+                      //展示已知数据
+                      table.render({
+                        elem: '#single',
+                        toolbar:'true'
+                        ,cols: [[ //标题栏
+                          {field: 'id', title: '排名', width: 300, sort: true}
+                          ,{field: 'username', title: '姓名', width: 300}
+                          ,{field: 'time', title: '时间', minWidth: 300}
+                          ,{title: '操作', width:170, toolbar:'#ListBar',fixed:"right",align:"center"}
+                        ]]
+                        ,data: [{
+                          "id": "1"
+                          ,"username": "蔡彦"
+                          ,"time": "21.19"
+                          ,"wcaid": "2009CAIY02"
+                        }, 
+                        ]
+                        //,skin: 'line' //表格风格
+                        ,even: true
+                        ,page: true //是否显示分页
+                        ,limits: [5, 10, 20,50]
+                        ,limit: 10 //每页默认显示的数量
+                      });
+                    });
+                    </script>
+                
+
+
+
+
+
+
+
+                </div>
+                  <div class="layui-tab-item">
+                        <fieldset class="layui-elem-field site-demo-button">
+                                <div>
+                                        <a href="https://cubingchina.com/results/rankings?region=China&event=sq1&gender=all&type=average">
+                                            <button type="button" class="layui-btn layui-btn-radius layui-btn-lg">中国SQ1平均排名</button>
+                                        </a>
+                                        <a href="https://cubingchina.com/results/rankings?region=World&event=sq1&gender=all&type=average">
+                                            <button type="button" class="layui-btn layui-btn-normal layui-btn-radius layui-btn-lg" style="float:right">世界SQ1平均排名</button>
+                                        </a>
+                                </div>
+                        </fieldset>
+                
+                        
+                    <table class="layui-hide" id="average" lay-filter="average"></table>
+                    <script type="text/html" id="ListBar">
+                      <a class="layui-btn layui-btn-xs" lay-event="showindex">查看粗饼主页</a>
+                    </script>
+                                   
+                              
+                    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+                    <script>
+                    layui.use('table', function(){
+                      var table = layui.table;
+                      
+                      //展示已知数据
+                      table.render({
+                        elem: '#average',
+                        //url:'../user/3.json',
+                        
+                        toolbar: 'true',
+                        
+                        title:"SQ1平均"
+                        ,cols: [[ //标题栏
+                        {field: 'id', title: '排名', width: 300, sort: true}
+                          ,{field: 'username', title: '姓名', width: 300}
+                          ,{field: 'time', title: '时间', minWidth: 300}
+                          ,{title: '操作', width:170, toolbar:'#ListBar',fixed:"right",align:"center"}
+                        ]]
+                       , data: [{
+                          "id": "1"
+                          ,"username": "蔡彦"
+                          ,"time": "27.58"
+                          ,"wcaid": "2009CAIY02"
+                        },
+                         ]
+                        //,skin: 'line' //表格风格
+                        ,even: true
+                        ,page:true
+                        ,limits: [5, 10, 20,50]
+                        ,limit: 10 //每页默认显示的数量
+                      });
+                    });
+
+
+      layui.use(['table'],function(){
+      table = layui.table;         
+      table.on('tool(average)', function(obj){
+  var layEvent = obj.event,
+      data = obj.data;
+      window.location.href="https://cubingchina.com/results/person/"+data.wcaid;
+});
+
+
+table.on('tool(single)', function(obj){
+  var layEvent = obj.event,
+      data = obj.data;
+
+      window.location.href="https://cubingchina.com/results/person/"+data.wcaid;
+});
+                    })
+</script>
+                  </div>
+                </div>
+        </div> 
+
+        
+
+
+</body>
+</html>

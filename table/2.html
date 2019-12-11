@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>二阶速拧</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+  
+  <script src="../layui/layui.all.js" charset="utf-8"></script>
+
+  
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                <ul class="layui-tab-title">
+
+                  <li class="layui-this">二阶速拧单次</li>
+
+
+                  <li>二阶速拧平均</li>
+
+
+
+                </ul>
+                <div class="layui-tab-content" style="height: 100px;">
+                  <div class="layui-tab-item layui-show">
+                      
+                        <fieldset class="layui-elem-field site-demo-button">
+                                <div>
+                                        <a href="https://cubingchina.com/results/rankings?region=China&event=222&gender=all&type=single">
+                                          <button type="button" class="layui-btn layui-btn-radius layui-btn-lg">中国二阶单次排名</button></a>
+                                        <a href="https://cubingchina.com/results/rankings?region=World&event=222&gender=all&type=single">
+                                          <button type="button" class="layui-btn layui-btn-normal layui-btn-radius layui-btn-lg" 
+                                          style="float:right">世界二阶单次排名</button></a>
+                                </div>
+                        </fieldset>
+                
+                        
+                    <table class="layui-hide" id="single"  lay-filter="single"></table>
+                    <script type="text/html" id="ListBar">
+                      <a class="layui-btn layui-btn-xs" lay-event="showindex">查看粗饼主页</a>
+                    </script>
+                                   
+                              
+                    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+                    <script>
+                    layui.use('table', function(){
+                      var table = layui.table;
+                      
+                      //展示已知数据
+                      table.render({
+                        elem: '#single',
+                        toolbar:'true'
+                        ,cols: [[ //标题栏
+                          {field: 'id', title: '排名', width: 300, sort: true}
+                          ,{field: 'username', title: '姓名', width: 300}
+                          ,{field: 'time', title: '时间', minWidth: 300}
+                          ,{title: '操作', width:170, toolbar:'#ListBar',fixed:"right",align:"center"}
+                        ]]
+                        ,data: [{
+                          "id": "1"
+                          ,"username": "杨宇煌"
+                          ,"time": "1.47"
+                          ,"wcaid": "2017YANG16"
+                        }, {
+                          "id": "2"
+                          ,"username": "伍凌枫"
+                          ,"time": "3.21"
+                          ,"wcaid": "2018WULI04"
+                        }, {"id": "3"
+                          ,"username": "钟凯文"
+                          ,"time": "3.26"
+                          ,"wcaid": "2015ZHON03"
+                        }, {
+                          "id": "4"
+                          ,"username": "操源"
+                          ,"time": "3.83"
+                          ,"wcaid": "2016CAOY01"},{
+                          "id": "5"
+                          ,"username": "罗烽骅"
+                          ,"time": "3.88"
+                          ,"wcaid": "2018LUOF01"
+                        }, {
+                          "id": "6"
+                          ,"username": "邓松涛"
+                          ,"time": "4.30"
+                          ,"wcaid": "2018DENG16"
+                        }, {"id": "7"
+                          ,"username": "陈浩鑫"
+                          ,"time": "4.35"
+                          ,"wcaid": "2019CHEH04"
+                        }, {
+                          "id": "8"
+                          ,"username": "温正烨"
+                          ,"time": "4.43"
+                          ,"wcaid": "2019WENZ02"},{
+                          "id": "9"
+                          ,"username": "罗崇"
+                          ,"time": "4.45"
+                          ,"wcaid": "2018LUOC05"
+                        }, {
+                          "id": "10"
+                          ,"username": "梁永波"
+                          ,"time": "4.55"
+                          ,"wcaid": "2018LIAN27"
+                        }, {"id": "11"
+                          ,"username": "罗益浩"
+                          ,"time": "4.57"
+                          ,"wcaid": "2017LUOY03"
+                        }, {
+                          "id": "12"
+                          ,"username": "余雷"
+                          ,"time": "4.66"
+                          ,"wcaid": "2015YULE01"},{
+                          "id": "13"
+                          ,"username": "李宇威"
+                          ,"time": "4.84"
+                          ,"wcaid": "2018LIYU18"
+                        }, {
+                          "id": "14"
+                          ,"username": "张威"
+                          ,"time": "5.10"
+                          ,"wcaid": "2019ZHAN10"
+                        }, {"id": "15"
+                          ,"username": "罗佳辉"
+                          ,"time": "5.21"
+                          ,"wcaid": "2017LUOJ03"
+                        }, {
+                          "id": "16"
+                          ,"username": "曹熙梓"
+                          ,"time": "5.58"
+                          ,"wcaid": "2018CAOX02"},{
+                          "id": "17"
+                          ,"username": "刘斯哲"
+                          ,"time": "5.75"
+                          ,"wcaid": "2010LIUS02"
+                        }, {
+                          "id": "18"
+                          ,"username": "彭伟聪"
+                          ,"time": "5.84"
+                          ,"wcaid": "2015PENG05"
+                        }, {"id": "19"
+                          ,"username": "王祉晗"
+                          ,"time": "6.15"
+                          ,"wcaid": "2018WANZ26"
+                        }, {
+                          "id": "20"
+                          ,"username": "魏庆伟"
+                          ,"time": "6.56"
+                          ,"wcaid": "2018WEIQ01"},{
+                          "id": "21"
+                          ,"username": "李煜桦"
+                          ,"time": "6.73"
+                          ,"wcaid": "2018LIYU17"
+                        }, {
+                          "id": "22"
+                          ,"username": "陈科林"
+                          ,"time": "7.51"
+                          ,"wcaid": "2018CHEK06"
+                        }, 
+                        {
+                          "id": "23"
+                          ,"username": "魏桂兴"
+                          ,"time": "8.35"
+                          ,"wcaid": "2019WEIG01"
+                        }, {
+                          "id": "24"
+                          ,"username": "蔡彦"
+                          ,"time": "11.27"
+                          ,"wcaid": "2009CAIY02"
+                        }, {
+                          "id": "25"
+                          ,"username": "李锐君"
+                          ,"time": "13.34"
+                          ,"wcaid": "2019LIRU03"
+                        }, {
+                          "id": "26"
+                          ,"username": "聂伟"
+                          ,"time": "34.16"
+                          ,"wcaid": "2018NIEW03"
+                        },
+                        ]
+                        //,skin: 'line' //表格风格
+                        ,even: true
+                        ,page: true //是否显示分页
+                        ,limits: [5, 10, 20,50]
+                        ,limit: 10 //每页默认显示的数量
+                      });
+                    });
+                    </script>
+                
+
+
+
+
+
+
+
+                </div>
+                  <div class="layui-tab-item">
+                        <fieldset class="layui-elem-field site-demo-button">
+                                <div>
+                                        <a href="https://cubingchina.com/results/rankings?region=China&event=222&gender=all&type=average">
+                                            <button type="button" class="layui-btn layui-btn-radius layui-btn-lg">中国二阶平均排名</button>
+                                        </a>
+                                        <a href="https://cubingchina.com/results/rankings?region=World&event=222&gender=all&type=average">
+                                            <button type="button" class="layui-btn layui-btn-normal layui-btn-radius layui-btn-lg" style="float:right">世界二阶平均排名</button>
+                                        </a>
+                                </div>
+                        </fieldset>
+                
+                        
+                    <table class="layui-hide" id="average" lay-filter="average"></table>
+                    <script type="text/html" id="ListBar">
+                      <a class="layui-btn layui-btn-xs" lay-event="showindex">查看粗饼主页</a>
+                    </script>
+                                   
+                              
+                    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+                    <script>
+                    layui.use('table', function(){
+                      var table = layui.table;
+                      
+                      //展示已知数据
+                      table.render({
+                        elem: '#average',
+                        //url:'../user/3.json',
+                        
+                        toolbar: 'true',
+                        
+                        title:"二阶速拧平均"
+                        ,cols: [[ //标题栏
+                        {field: 'id', title: '排名', width: 300, sort: true}
+                          ,{field: 'username', title: '姓名', width: 300}
+                          ,{field: 'time', title: '时间', minWidth: 300}
+                          ,{title: '操作', width:170, toolbar:'#ListBar',fixed:"right",align:"center"}
+                        ]]
+                       , data: [{
+                          "id": "1"
+                          ,"username": "杨宇煌"
+                          ,"time": "2.90"
+                          ,"wcaid": "2017YANG16"
+                        },{
+                          "id": "2"
+                          ,"username": "操源"
+                          ,"time": "5.03"
+                          ,"wcaid": "2016CAOY01"
+                        },{
+                          "id": "3"
+                          ,"username": "伍凌枫"
+                          ,"time": "5.50"
+                          ,"wcaid": "2018WULI04"
+                        },{
+                          "id": "4"
+                          ,"username": "钟凯文"
+                          ,"time": "5.59"
+                          ,"wcaid": "2015ZHON03"
+                        },{
+                          "id": "5"
+                          ,"username": "罗崇"
+                          ,"time": "5.98"
+                          ,"wcaid": "2018LUOC05"
+                        },{
+                          "id": "6"
+                          ,"username": "罗烽骅)"
+                          ,"time": "6.05"
+                          ,"wcaid": "2018LUOF01"
+                        },{
+                          "id": "7"
+                          ,"username": "温正烨"
+                          ,"time": "6.08"
+                          ,"wcaid": "2019WENZ02"
+                        },{
+                          "id": "8"
+                          ,"username": "张威"
+                          ,"time": "6.13"
+                          ,"wcaid": "2019ZHAN10"
+                        },{
+                          "id": "9"
+                          ,"username": "李宇威"
+                          ,"time": "6.21"
+                          ,"wcaid": "2018LIYU18"
+                        },{
+                          "id": "10"
+                          ,"username": "余雷"
+                          ,"time": "6.30"
+                          ,"wcaid": "2015YULE01"
+                        },{
+                          "id": "11"
+                          ,"username": "曹熙梓"
+                          ,"time": "6.37"
+                          ,"wcaid": "2018CAOX02"
+                        },{
+                          "id": "12"
+                          ,"username": "梁永波"
+                          ,"time": "6.85"
+                          ,"wcaid": "2018LIAN27"
+                        },{
+                          "id": "13"
+                          ,"username": "罗益浩"
+                          ,"time": "7.04"
+                          ,"wcaid": "2017LUOY03"
+                        },{
+                          "id": "14"
+                          ,"username": "罗佳辉"
+                          ,"time": "7.49"
+                          ,"wcaid": "2017LUOJ03"
+                        },{
+                          "id": "15"
+                          ,"username": "魏庆伟"
+                          ,"time": "7.88"
+                          ,"wcaid": "2018WEIQ01"
+                        },{
+                          "id": "16"
+                          ,"username": "彭伟聪"
+                          ,"time": "16.15"
+                          ,"wcaid": "2015PENG05"
+                        },{
+                          "id": "17"
+                          ,"username": "陈科林"
+                          ,"time": "8.26"
+                          ,"wcaid": "2018CHEK06"
+                        },{
+                          "id": "18"
+                          ,"username": "陈浩鑫"
+                          ,"time": "8.35"
+                          ,"wcaid": "2019CHEH04"
+                        },{
+                          "id": "19"
+                          ,"username": "李煜桦"
+                          ,"time": "8.58"
+                          ,"wcaid": "2018LIYU17"
+                        },{
+                          "id": "20"
+                          ,"username": "邓松涛"
+                          ,"time": "8.74"
+                          ,"wcaid": "2018DENG16"
+                        },{
+                          "id": "21"
+                          ,"username": "王祉晗"
+                          ,"time": "8.77"
+                          ,"wcaid": "2018WANZ26"
+                        },{
+                          "id": "22"
+                          ,"username": "刘斯哲"
+                          ,"time": "8.89"
+                          ,"wcaid": "2010LIUS02"
+                        },{
+                          "id": "23"
+                          ,"username": "魏桂兴"
+                          ,"time": "14.08"
+                          ,"wcaid": "2019WEIG01"
+                        },{
+                          "id": "24"
+                          ,"username": "蔡彦"
+                          ,"time": "14.25"
+                          ,"wcaid": "2009CAIY02"
+                        },{
+                          "id": "25"
+                          ,"username": "李锐君"
+                          ,"time": "15.17"
+                          ,"wcaid": ""
+                        },
+                         ]
+                        //,skin: 'line' //表格风格
+                        ,even: true
+                        ,page:true
+                        ,limits: [5, 10, 20,50]
+                        ,limit: 10 //每页默认显示的数量
+                      });
+                    });
+
+
+      layui.use(['table'],function(){
+      table = layui.table;         
+      table.on('tool(average)', function(obj){
+  var layEvent = obj.event,
+      data = obj.data;
+      window.location.href="https://cubingchina.com/results/person/"+data.wcaid;
+});
+
+
+table.on('tool(single)', function(obj){
+  var layEvent = obj.event,
+      data = obj.data;
+
+      window.location.href="https://cubingchina.com/results/person/"+data.wcaid;
+});
+                    })
+</script>
+                  </div>
+                </div>
+        </div> 
+
+        
+
+
+</body>
+</html>
