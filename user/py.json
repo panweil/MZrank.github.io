@@ -1,0 +1,61 @@
+{
+    "code": 0,
+    "msg": "single",
+    "count": 12,
+    "data":  [{
+        "username": "王华斌"
+        ,"single": 3.39
+        ,"avg": 7.31
+        ,"wcaid": "2016WANH14"
+      }, {
+        "username": "余雷"
+        ,"single": 5.24
+        ,"avg": 8.78
+        ,"wcaid": "2015YULE01"
+      }, {"username": "王祉晗"
+        ,"single": 5.46
+        ,"avg": 7.58
+        ,"wcaid": "2018WANZ26"
+      }, {
+        "username": "杨宇煌"
+        ,"single": 7.44
+        ,"avg": 10.02
+        ,"wcaid": "2017YANG16"},{
+       "username": "温正烨"
+        ,"single": 7.79
+        ,"avg": 13.54
+        ,"wcaid": "2019WENZ02"
+      }, {
+        "username": "钟凯文"
+        ,"single": 8.42
+        ,"avg": 12.39
+        ,"wcaid": "2015ZHON03"
+      }, {"username": "魏庆伟"
+        ,"single": 9.38
+        ,"avg": 13.31
+        ,"wcaid": "2018WEIQ01"
+      }, {
+        "username": "操源"
+        ,"single": 11.83
+        ,"avg": 13.40
+        ,"wcaid": "2016CAOY01"},{
+        "username": "胡宇韬"
+        ,"single": 12.14
+        ,"avg": 15.30
+        ,"wcaid": "2018HUYU04"
+      }, {
+        "username": "罗益浩"
+        ,"single": 12.53
+        ,"avg": 17.88
+        ,"wcaid": "2017LUOY03"
+      }, {"username": "赖沁"
+        ,"single": 13.09
+        ,"avg": 16.08
+        ,"wcaid": "2018LAIQ01"
+      }, {
+        "username": "杨白雪"
+        ,"single": 20.45
+        ,"avg": 25.83
+        ,"wcaid": "2018YANB01"}
+      ]
+}

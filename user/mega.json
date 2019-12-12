@@ -1,0 +1,17 @@
+{
+    "code": 0,
+    "msg": "single",
+    "count": 2,
+    "data": [{
+        "username": "钟凯文"
+        ,"single": 69.61
+        ,"avg": 76.35
+        ,"wcaid": "2015ZHON03"
+      }, {
+        "username": "胡宇韬"
+        ,"single": 76.83
+        ,"avg": 95.96
+        ,"wcaid": "2018HUYU04"
+      }
+      ]
+}

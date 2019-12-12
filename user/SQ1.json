@@ -1,0 +1,12 @@
+{
+    "code": 0,
+    "msg": "single",
+    "count": 1,
+    "data":  [{
+        "username": "蔡彦"
+        ,"single": 21.19
+        ,"avg": 27.58
+        ,"wcaid": "2009CAIY02"
+      }
+      ]
+}

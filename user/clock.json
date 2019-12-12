@@ -1,0 +1,12 @@
+{
+    "code": 0,
+    "msg": "single",
+    "count": 1,
+    "data": [{
+        "username": "罗益浩"
+        ,"single": 22.74
+        ,"avg": 24.56
+        ,"wcaid": "2017LUOY03"
+      }
+      ]
+}

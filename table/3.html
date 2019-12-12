@@ -15,309 +15,310 @@
   <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 </head>
 <body>
+<div class="layui-layout layui-layout-admin">
 
-        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                <ul class="layui-tab-title">
-
-                  <li class="layui-this">三阶速拧单次</li>
-
-
-                  <li>三阶速拧平均</li>
-
-
-
-                </ul>
-                <div class="layui-tab-content" style="height: 100px;">
-                  <div class="layui-tab-item layui-show">
                       
-                        <fieldset class="layui-elem-field site-demo-button">
-                                <div>
-                                        <a href="https://cubingchina.com/results/rankings?region=China&event=333&gender=all&type=single">
-                                          <button type="button" class="layui-btn layui-btn-radius layui-btn-lg">中国三阶单次排名</button></a>
-                                        <a href="https://cubingchina.com/results/rankings?region=World&event=333&gender=all&type=single">
-                                          <button type="button" class="layui-btn layui-btn-normal layui-btn-radius layui-btn-lg" 
-                                          style="float:right">世界三阶单次排名</button></a>
-                                </div>
-                        </fieldset>
-                
+  <fieldset class="layui-elem-field site-demo-button">
+
+                  <a href="https://cubingchina.com/results/rankings?region=China&event=333&gender=all&type=single">
+                    <button type="button" class="layui-btn layui-btn-radius layui-btn-lg">中国三阶单次排名</button></a>
+                    <a href="https://cubingchina.com/results/rankings?region=China&event=333&gender=all&type=average">
+                      <button type="button" class="layui-btn layui-btn-radius layui-btn-lg">中国三阶平均排名</button></a>
+
+
+                      <a href="https://cubingchina.com/results/rankings?region=World&event=333&gender=all&type=average">
+                        <button type="button" class="layui-btn layui-btn-normal layui-btn-radius layui-btn-lg" 
+                        style="float:right">世界三阶平均排名</button></a>
+                  <a href="https://cubingchina.com/results/rankings?region=World&event=333&gender=all&type=single">
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius layui-btn-lg" 
+                    style="float:right">世界三阶单次排名</button></a>
+
+
+  </fieldset>
+
+            
+        <table class="layui-hide" id="cuberank"  lay-filter="cuberank"></table>
+        <script type="text/html" id="ListBar">
+          <a class="layui-btn layui-btn-xs" lay-event="showindex">查看粗饼主页</a>
+        </script>
                         
-                    <table class="layui-hide" id="single"  lay-filter="single"></table>
-                    <script type="text/html" id="ListBar">
-                      <a class="layui-btn layui-btn-xs" lay-event="showindex">查看粗饼主页</a>
-                    </script>
-                                   
-                              
-                    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
-                    <script>
-                    layui.use('table', function(){
-                      var table = layui.table;
-                      
-                      //展示已知数据
-                      table.render({
-                        elem: '#single',
-                        toolbar:'true'
-                        ,cols: [[ //标题栏
-                          {field: 'id', title: '排名',  sort: true}
-                          ,{field: 'username', title: '姓名'}
-                          ,{field: 'time', title: '时间'}
-                          ,{title: '操作',  toolbar:'#ListBar',fixed:"right",align:"center"}
-                        ]]
-                        ,data: [{
-                          "id": "1"
-                          ,"username": "杨宇煌"
-                          ,"time": "7.94"
-                          ,"wcaid": "2017YANG16"
-                        }, {
-                          "id": "2"
-                          ,"username": "彭伟聪"
-                          ,"time": "9.03"
-                          ,"wcaid": "2015PENG05"
-                        }, {"id": "3"
-                          ,"username": "曹熙梓"
-                          ,"time": "9.44"
-                          ,"wcaid": "2018CAOX02"
-                        }, {
-                          "id": "4"
-                          ,"username": "钟宇平"
-                          ,"time": "9.66"
-                          ,"wcaid": "2019ZHON23"},{
-                          "id": "5"
-                          ,"username": "罗绿翔"
-                          ,"time": "9.81"
-                          ,"wcaid": "2018LUOL03"
-                        }, {
-                          "id": "6"
-                          ,"username": "黄回君"
-                          ,"time": "9.83"
-                          ,"wcaid": "2015HUAN39"
-                        }, {"id": "7"
-                          ,"username": "李宇威"
-                          ,"time": "11.02"
-                          ,"wcaid": "2018LIYU18"
-                        }, {
-                          "id": "8"
-                          ,"username": "温正烨"
-                          ,"time": "11.13"
-                          ,"wcaid": "2019WENZ02"},{
-                          "id": "9"
-                          ,"username": "钟俊威"
-                          ,"time": "11.36"
-                          ,"wcaid": "2019ZHON20"
-                        }, {
-                          "id": "10"
-                          ,"username": "石航懿"
-                          ,"time": "11.42"
-                          ,"wcaid": "2019SHIH06"
-                        }, {"id": "11"
-                          ,"username": "罗崇"
-                          ,"time": "11.67"
-                          ,"wcaid": "2018LUOC05"
-                        }, {
-                          "id": "12"
-                          ,"username": "刘杰"
-                          ,"time": "12.30"
-                          ,"wcaid": "2018LIUJ23"},{
-                          "id": "13"
-                          ,"username": "胡宇韬"
-                          ,"time": "12.56"
-                          ,"wcaid": "2018HUYU04"
-                        }, {
-                          "id": "14"
-                          ,"username": "余雷"
-                          ,"time": "13.09"
-                          ,"wcaid": "2015YULE01"
-                        }, {"id": "15"
-                          ,"username": "钟凯文"
-                          ,"time": "13.18"
-                          ,"wcaid": "2015ZHON03"
-                        }, {
-                          "id": "16"
-                          ,"username": "邓松涛"
-                          ,"time": "13.32"
-                          ,"wcaid": "2018DENG16"},{
-                          "id": "17"
-                          ,"username": "张威"
-                          ,"time": "13.43"
-                          ,"wcaid": "2019ZHAN10"
-                        }, {
-                          "id": "18"
-                          ,"username": "王华斌"
-                          ,"time": "13.51"
-                          ,"wcaid": "2016WANH14"
-                        }, {"id": "19"
-                          ,"username": "罗佳辉"
-                          ,"time": "13.56"
-                          ,"wcaid": "2017LUOJ03"
-                        }, {
-                          "id": "20"
-                          ,"username": "罗益浩"
-                          ,"time": "13.58"
-                          ,"wcaid": "2017LUOY03"},{
-                          "id": "21"
-                          ,"username": "张梓壑"
-                          ,"time": "13.86"
-                          ,"wcaid": "2018ZHAZ11"
-                        }, {
-                          "id": "22"
-                          ,"username": "谢佳豪"
-                          ,"time": "13.93"
-                          ,"wcaid": "2018XIEJ03"
-                        }, 
-                        {
-                          "id": "23"
-                          ,"username": "刘斯哲"
-                          ,"time": "14.05"
-                          ,"wcaid": "2010LIUS02"
-                        }, {
-                          "id": "24"
-                          ,"username": "廖昱棋"
-                          ,"time": "14.95"
-                          ,"wcaid": "2019LIAO10"
-                        }, {
-                          "id": "25"
-                          ,"username": "操源"
-                          ,"time": "14.98"
-                          ,"wcaid": "2016CAOY01"
-                        }, {
-                          "id": "26"
-                          ,"username": "魏庆伟"
-                          ,"time": "15.15"
-                          ,"wcaid": "2018WEIQ01"
-                        }, {
-                          "id": "27"
-                          ,"username": "魏桂兴"
-                          ,"time": "15.39"
-                          ,"wcaid": "2019WEIG01"
-                        }, {
-                          "id": "28"
-                          ,"username": "伍凌枫"
-                          ,"time": "16.05"
-                          ,"wcaid": "2018WULI04"
-                        }, {
-                          "id": "29"
-                          ,"username": "温鹏锋"
-                          ,"time": "16.42"
-                          ,"wcaid": "2018WENP02"
-                        }, {
-                          "id": "30"
-                          ,"username": "罗烽骅"
-                          ,"time": "16.51"
-                          ,"wcaid": "2018LUOF01"
-                        }, 
-                        {
-                          "id": "31"
-                          ,"username": "蔡彦"
-                          ,"time": "17.16"
-                          ,"wcaid": "2009CAIY02"
-                        }, {
-                          "id": "32"
-                          ,"username": "罗亿军"
-                          ,"time": "17.52"
-                          ,"wcaid": "2018LUOY07"
-                        }, 
-                        {
-                          "id": "33"
-                          ,"username": "黄伟燊"
-                          ,"time": "17.67"
-                          ,"wcaid": "2018HUAN70"
-                        }, {
-                          "id": "34"
-                          ,"username": "梁永波"
-                          ,"time": "18.57"
-                          ,"wcaid": "2018LIAN27"
-                        }, {
-                          "id": "35"
-                          ,"username": "张羽骞"
-                          ,"time": "18.61"
-                          ,"wcaid": "2019ZHAY17"
-                        }, {
-                          "id": "36"
-                          ,"username": "王祉晗"
-                          ,"time": "20.12"
-                          ,"wcaid": "2018WANZ26"
-                        }, {
-                          "id": "37"
-                          ,"username": "汤彦燊"
-                          ,"time": "20.72"
-                          ,"wcaid": "2018TANG24"
-                        }, {
-                          "id": "38"
-                          ,"username": "钟维政"
-                          ,"time": "21.23"
-                          ,"wcaid": "2019ZHON22"
-                        }, {
-                          "id": "39"
-                          ,"username": "陈科林"
-                          ,"time": "22.30"
-                          ,"wcaid": "2018CHEK06"
-                        }, {
-                          "id": "40"
-                          ,"username": "杨白雪"
-                          ,"time": "22.33"
-                          ,"wcaid": "2018YANB01"
-                        }, 
-                        {
-                          "id": "41"
-                          ,"username": "李一玄"
-                          ,"time": "23.76"
-                          ,"wcaid": "2019LIYI07"
-                        }, {
-                          "id": "42"
-                          ,"username": "谢迅权"
-                          ,"time": "24.23"
-                          ,"wcaid": "2018XIEX01"
-                        }, 
-                        {
-                          "id": "43"
-                          ,"username": "郑炯熙"
-                          ,"time": "28.70"
-                          ,"wcaid": "2019ZHEN42"
-                        }, {
-                          "id": "44"
-                          ,"username": "张栋汕"
-                          ,"time": "28.91"
-                          ,"wcaid": "2018ZHAD08"
-                        }, {
-                          "id": "45"
-                          ,"username": "陈浩鑫"
-                          ,"time": "36.27"
-                          ,"wcaid": "2019CHEH04"
-                        }, {
-                          "id": "46"
-                          ,"username": "李锐君"
-                          ,"time": "36.59"
-                          ,"wcaid": "2019LIRU03"
-                        }, {
-                          "id": "47"
-                          ,"username": "杨恒"
-                          ,"time": "37.60"
-                          ,"wcaid": "2019YANH04"
-                        }, {
-                          "id": "48"
-                          ,"username": "谢沁润"
-                          ,"time": "41.86"
-                          ,"wcaid": "2019XIEQ03"
-                        }, {
-                          "id": "49"
-                          ,"username": "唐梓泓"
-                          ,"time": "42.69"
-                          ,"wcaid": "2019TANG22"
-                        }, {
-                          "id": "50"
-                          ,"username": "聂伟"
-                          ,"time": "55.51"
-                          ,"wcaid": "2018NIEW03"
-                        }, 
-                        ]
-                        //,skin: 'line' //表格风格
-                        ,even: true
-                        ,page: true //是否显示分页
-                        ,limits: [5, 10, 20,50]
-                        ,limit: 10 //每页默认显示的数量
-                      });
-                    });
-                    </script>
-                
+                  
+        <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+        <script>
+        layui.use('table', function(){
+          var table = layui.table;
+          
+          //展示已知数据
+          table.render({
+            elem: '#cuberank',
+            toolbar:'true',
+            initSort: {
+                  field: 'single' //排序字段，对应 cols 设定的各字段名
+                  ,type: 'asc' //排序方式  asc: 升序、desc: 降序、null: 默认排序
+                      }           
+            ,cols: [[ //标题栏
+              {field: 'rank', title: '排名',  sort: true,type:'numbers',align:"center",fixed:"left",width:70}
+              ,{field: 'username', title: '姓名',align:"center"}
+              ,{field: 'single', title: '单次', align:"center",sort:true}
+              ,{field: 'avg', title: '平均', align:"center",sort:true}
+              ,{title: '操作',  toolbar:'#ListBar',fixed:"right",align:"center"}
+            ]]
+            ,data: [{
+
+              "username": "杨宇煌"
+              ,"single": 7.94
+              ,"avg": 9.59
+              ,"wcaid": "2017YANG16"
+            }, {
+             "username": "彭伟聪"
+              ,"single": 9.03
+              ,"avg": 10.22
+              ,"wcaid": "2015PENG05"
+            }, {"username": "曹熙梓"
+              ,"single": 9.44
+              ,"avg": 11.25
+              ,"wcaid": "2018CAOX02"
+            }, {
+              "username": "钟宇平"
+              ,"single": 9.66
+              ,"avg": 13.22
+              ,"wcaid": "2019ZHON23"},{
+              "username": "罗绿翔"
+              ,"single": 9.81
+              ,"avg": 11.18
+              ,"wcaid": "2018LUOL03"
+            }, {
+              "username": "黄回君"
+              ,"single": 9.83
+              ,"avg": 12.07
+              ,"wcaid": "2015HUAN39"
+            }, {"username": "李宇威"
+              ,"single": 11.02
+              ,"avg": 13.71
+              ,"wcaid": "2018LIYU18"
+            }, {
+              "username": "温正烨"
+              ,"single": 11.13
+              ,"avg": 16.53
+              ,"wcaid": "2019WENZ02"},{
+              "username": "钟俊威"
+              ,"single": 11.36
+              ,"avg": 13.46
+              ,"wcaid": "2019ZHON20"
+            }, {
+              "username": "石航懿"
+              ,"single": 11.42
+              ,"avg": 16.43
+              ,"wcaid": "2019SHIH06"
+            }, {"username": "罗崇"
+              ,"single": 11.67
+              ,"avg": 15.24
+              ,"wcaid": "2018LUOC05"
+            }, {
+              "username": "刘杰"
+              ,"single": 12.30
+              ,"avg": 13.71
+              ,"wcaid": "2018LIUJ23"},{
+             "username": "胡宇韬"
+              ,"single": 12.56
+              ,"avg": 14.94
+              ,"wcaid": "2018HUYU04"
+            }, {
+              "username": "余雷"
+              ,"single": 13.09
+              ,"avg": 16.15
+              ,"wcaid": "2015YULE01"
+            }, {"username": "钟凯文"
+              ,"single": 13.18
+              ,"avg": 15.51
+              ,"wcaid": "2015ZHON03"
+            }, {
+              "username": "邓松涛"
+              ,"single": 13.32
+              ,"avg": 15.64
+              ,"wcaid": "2018DENG16"},{
+              "username": "张威"
+              ,"single": 13.43
+              ,"avg": 17.17
+              ,"wcaid": "2019ZHAN10"
+            }, {
+              "username": "王华斌"
+              ,"single": 13.51
+              ,"avg": 15.59
+              ,"wcaid": "2016WANH14"
+            }, {"username": "罗佳辉"
+              ,"single": 13.56
+              ,"avg": 17.24
+              ,"wcaid": "2017LUOJ03"
+            }, {
+              "username": "罗益浩"
+              ,"single": 13.58
+              ,"avg": 19.00
+              ,"wcaid": "2017LUOY03"},{
+              "username": "张梓壑"
+              ,"single": 13.86
+              ,"avg": 17.60
+              ,"wcaid": "2018ZHAZ11"
+            }, {
+              "username": "谢佳豪"
+              ,"single": 13.93
+              ,"avg": 15.80
+              ,"wcaid": "2018XIEJ03"
+            }, 
+            {
+              "username": "刘斯哲"
+              ,"single": 14.05
+              ,"avg": 17.54
+              ,"wcaid": "2010LIUS02"
+            }, {
+              "username": "廖昱棋"
+              ,"single": 14.95
+              ,"avg": 17.37
+              ,"wcaid": "2019LIAO10"
+            }, {
+              "username": "操源"
+              ,"single": 14.98
+              ,"avg": 18.81
+              ,"wcaid": "2016CAOY01"
+            }, {
+              "username": "魏庆伟"
+              ,"avg": 17.21
+              ,"wcaid": "2018WEIQ01"
+            }, {
+              "username": "魏桂兴"
+              ,"single": 15.39
+              ,"avg": 19.46
+              ,"wcaid": "2019WEIG01"
+            }, {
+              "username": "伍凌枫"
+              ,"single": 16.05
+              ,"avg": 19.68
+              ,"wcaid": "2018WULI04"
+            }, {
+              "username": "温鹏锋"
+              ,"single": 16.42
+              ,"avg": 17.68
+              ,"wcaid": "2018WENP02"
+            }, {
+              "username": "罗烽骅"
+              ,"single": 16.51
+              ,"avg": 23.20
+              ,"wcaid": "2018LUOF01"
+            }, 
+            {
+              "username": "蔡彦"
+              ,"single": 17.16
+              ,"avg": 21.26
+              ,"wcaid": "2009CAIY02"
+            }, {
+              "username": "罗亿军"
+              ,"single": 17.52
+              ,"avg": 18.43
+              ,"wcaid": "2018LUOY07"
+            }, 
+            {
+              "username": "黄伟燊"
+              ,"single": 17.67
+              ,"avg": 19.80
+              ,"wcaid": "2018HUAN70"
+            }, {
+              "username": "梁永波"
+              ,"single": 18.57
+              ,"avg": 21.52
+              ,"wcaid": "2018LIAN27"
+            }, {
+              "username": "张羽骞"
+              ,"single": 18.61
+              ,"avg": 20.53
+              ,"wcaid": "2019ZHAY17"
+            }, {
+              "username": "王祉晗"
+              ,"single": 20.12
+              ,"avg": 21.13
+              ,"wcaid": "2018WANZ26"
+            }, {
+              "username": "汤彦燊"
+              ,"single": 20.72
+              ,"avg": 26.86
+              ,"wcaid": "2018TANG24"
+            }, {
+              "username": "钟维政"
+              ,"single": 21.23
+              ,"avg": 21.86
+              ,"wcaid": "2019ZHON22"
+            }, {
+              "username": "陈科林"
+              ,"single": 22.30
+              ,"avg": 25.22
+              ,"wcaid": "2018CHEK06"
+            }, {
+              "username": "杨白雪"
+              ,"single": 22.33
+              ,"avg": 26.74
+              ,"wcaid": "2018YANB01"
+            }, 
+            {
+              "username": "李一玄"
+              ,"single": 23.76
+              ,"avg": 27.72
+              ,"wcaid": "2019LIYI07"
+            }, {
+              "username": "谢迅权"
+              ,"single": 24.23
+              ,"avg": 33.24
+              ,"wcaid": "2018XIEX01"
+            }, 
+            {
+              "username": "郑炯熙"
+              ,"single": 28.70
+              ,"avg": 32.10
+              ,"wcaid": "2019ZHEN42"
+            }, {
+              "username": "张栋汕"
+              ,"single": 28.91
+              ,"avg": 37.30
+              ,"wcaid": "2018ZHAD08"
+            }, {
+              "username": "陈浩鑫"
+              ,"single": 36.27
+              ,"avg": 42.40
+              ,"wcaid": "2019CHEH04"
+            }, {
+              "username": "李锐君"
+              ,"single": 36.59
+              ,"avg": 41.07
+              ,"wcaid": "2019LIRU03"
+            }, {
+              "username": "杨恒"
+              ,"single": 37.60
+              ,"avg": 45.18
+              ,"wcaid": "2019YANH04"
+            }, {
+              "username": "谢沁润"
+              ,"single": 41.86
+              ,"avg": 49.72
+              ,"wcaid": "2019XIEQ03"
+            }, {
+              "username": "唐梓泓"
+              ,"single": 42.69
+              ,"avg": 50.21
+              ,"wcaid": "2019TANG22"
+            }, {
+              "username": "聂伟"
+              ,"single": 55.51
+              ,"avg": 71.07
+              ,"wcaid": "2018NIEW03"
+            }, 
+            ]
+            //,skin: 'line' //表格风格
+            ,even: true
+            ,page: true //是否显示分页
+            ,limits: [10, 20,50]
+            ,limit: 20 //每页默认显示的数量
+          });
+        });
+        </script>
+    
 
 
 
@@ -325,330 +326,24 @@
 
 
 
-                </div>
-                  <div class="layui-tab-item" >
-                        <fieldset class="layui-elem-field site-demo-button">
-                                <div>
-                                        <a href="https://cubingchina.com/results/rankings?region=China&event=333&gender=all&type=average">
-                                            <button type="button" class="layui-btn layui-btn-radius layui-btn-lg">中国三阶平均排名</button>
-                                        </a>
-                                        <a href="https://cubingchina.com/results/rankings?region=World&event=333&gender=all&type=average">
-                                            <button type="button" class="layui-btn layui-btn-normal layui-btn-radius layui-btn-lg" style="float:right">世界三阶平均排名</button>
-                                        </a>
-                                </div>
-                        </fieldset>
-                
-                        
-                    <table class="layui-hide" id="average" lay-filter="average"></table>
-                    <script type="text/html" id="ListBar">
-                      <a class="layui-btn layui-btn-xs" lay-event="showindex">查看粗饼主页</a>
-                    </script>
-                                   
-                              
-                    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
-                    <script>
-                    layui.use('table', function(){
-                      var table = layui.table;
-                      
-                      //展示已知数据
-                      table.render({
-                        elem: '#average',
-                        //url:'../user/3.json',
-                        
-                        toolbar: 'true',
-                        
-                        title:"三阶速拧平均"
-                        ,cols: [[ //标题栏
-                        {field: 'id', title: '排名',  sort: true}
-                          ,{field: 'username', title: '姓名'}
-                          ,{field: 'time', title: '时间'}
-                          ,{title: '操作', toolbar:'#ListBar',fixed:"right",align:"center"}
-                        ]]
-                       , data: [{
-                          "id": "1"
-                          ,"username": "杨宇煌"
-                          ,"time": "9.59"
-                          ,"wcaid": "2017YANG16"
-                        },{
-                          "id": "2"
-                          ,"username": "彭伟聪"
-                          ,"time": "10.22"
-                          ,"wcaid": "2015PENG05"
-                        },{
-                          "id": "3"
-                          ,"username": "罗绿翔"
-                          ,"time": "11.18"
-                          ,"wcaid": "2018LUOL03"
-                        },{
-                          "id": "4"
-                          ,"username": "曹熙梓"
-                          ,"time": "11.25"
-                          ,"wcaid": "2018CAOX02"
-                        },{
-                          "id": "5"
-                          ,"username": "黄回君"
-                          ,"time": "12.07"
-                          ,"wcaid": "2015HUAN39"
-                        },{
-                          "id": "6"
-                          ,"username": "钟宇平"
-                          ,"time": "13.22"
-                          ,"wcaid": "2019ZHON23"
-                        },{
-                          "id": "7"
-                          ,"username": "钟俊威"
-                          ,"time": "13.46"
-                          ,"wcaid": "2019ZHON20"
-                        },{
-                          "id": "8"
-                          ,"username": "李宇威"
-                          ,"time": "13.71"
-                          ,"wcaid": "2018LIYU18"
-                        },{
-                          "id": "9"
-                          ,"username": "刘杰"
-                          ,"time": "13.71"
-                          ,"wcaid": "2018LIUJ23"
-                        },{
-                          "id": "10"
-                          ,"username": "胡宇韬"
-                          ,"time": "14.94"
-                          ,"wcaid": "2018HUYU04"
-                        },{
-                          "id": "11"
-                          ,"username": "罗崇"
-                          ,"time": "15.24"
-                          ,"wcaid": "2018LUOC05"
-                        },{
-                          "id": "12"
-                          ,"username": "钟凯文"
-                          ,"time": "15.51"
-                          ,"wcaid": "2015ZHON03"
-                        },{
-                          "id": "13"
-                          ,"username": "王华斌"
-                          ,"time": "15.59"
-                          ,"wcaid": "2016WANH14"
-                        },{
-                          "id": "14"
-                          ,"username": "邓松涛"
-                          ,"time": "15.64"
-                          ,"wcaid": "2018DENG16"
-                        },{
-                          "id": "15"
-                          ,"username": "谢佳豪"
-                          ,"time": "15.80"
-                          ,"wcaid": "2018XIEJ03"
-                        },{
-                          "id": "16"
-                          ,"username": "余雷"
-                          ,"time": "16.15"
-                          ,"wcaid": "2015YULE01"
-                        },{
-                          "id": "17"
-                          ,"username": "石航懿"
-                          ,"time": "16.43"
-                          ,"wcaid": "2019SHIH06"
-                        },{
-                          "id": "18"
-                          ,"username": "温正烨"
-                          ,"time": "16.53"
-                          ,"wcaid": "2019WENZ02"
-                        },{
-                          "id": "19"
-                          ,"username": "张威"
-                          ,"time": "17.17"
-                          ,"wcaid": "2019ZHAN10"
-                        },{
-                          "id": "20"
-                          ,"username": "魏庆伟"
-                          ,"time": "17.21"
-                          ,"wcaid": "2018WEIQ01"
-                        },{
-                          "id": "21"
-                          ,"username": "罗佳辉"
-                          ,"time": "17.24"
-                          ,"wcaid": "2017LUOJ03"
-                        },{
-                          "id": "22"
-                          ,"username": "廖昱棋"
-                          ,"time": "17.37"
-                          ,"wcaid": "2019LIAO10"
-                        },{
-                          "id": "23"
-                          ,"username": "刘斯哲"
-                          ,"time": "17.54"
-                          ,"wcaid": "2010LIUS02"
-                        },{
-                          "id": "24"
-                          ,"username": "张梓壑"
-                          ,"time": "17.60"
-                          ,"wcaid": "2018ZHAZ11"
-                        },{
-                          "id": "25"
-                          ,"username": "温鹏锋"
-                          ,"time": "17.68"
-                          ,"wcaid": "2018WENP02"
-                        },{
-                          "id": "26"
-                          ,"username": "罗亿军"
-                          ,"time": "18.43"
-                          ,"wcaid": "2018LUOY07"
-                        },{
-                          "id": "27"
-                          ,"username": "操源"
-                          ,"time": "18.81"
-                          ,"wcaid": "2016CAOY01"
-                        },{
-                          "id": "28"
-                          ,"username": "罗益浩"
-                          ,"time": "19.00"
-                          ,"wcaid": "2017LUOY03"
-                        },{
-                          "id": "29"
-                          ,"username": "魏桂兴"
-                          ,"time": "19.46"
-                          ,"wcaid": "019WEIG01"
-                        },{
-                          "id": "30"
-                          ,"username": "伍凌枫"
-                          ,"time": "19.68"
-                          ,"wcaid": "2018WULI04"
-                        },{
-                          "id": "31"
-                          ,"username": "黄伟燊"
-                          ,"time": "19.80"
-                          ,"wcaid": "2018HUAN70"
-                        },{
-                          "id": "32"
-                          ,"username": "张羽骞"
-                          ,"time": "20.53"
-                          ,"wcaid": "2019ZHAY17"
-                        },{
-                          "id": "33"
-                          ,"username": "王祉晗"
-                          ,"time": "21.13"
-                          ,"wcaid": "2018WANZ26"
-                        },{
-                          "id": "34"
-                          ,"username": "蔡彦"
-                          ,"time": "21.26"
-                          ,"wcaid": "2009CAIY02"
-                        },{
-                          "id": "35"
-                          ,"username": "梁永波"
-                          ,"time": "	21.52"
-                          ,"wcaid": "2018LIAN27"
-                        },{
-                          "id": "36"
-                          ,"username": "钟维政"
-                          ,"time": "21.86"
-                          ,"wcaid": "2019ZHON22"
-                        },{
-                          "id": "37"
-                          ,"username": "罗烽骅"
-                          ,"time": "23.20"
-                          ,"wcaid": "2018LUOF01"
-                        },{
-                          "id": "38"
-                          ,"username": "陈科林"
-                          ,"time": "25.22"
-                          ,"wcaid": "2018CHEK06"
-                        },{
-                          "id": "39"
-                          ,"username": "杨白雪"
-                          ,"time": "26.74"
-                          ,"wcaid": "2018YANB01"
-                        },{
-                          "id": "40"
-                          ,"username": "汤彦燊"
-                          ,"time": "26.86"
-                          ,"wcaid": "2018TANG24"
-                        },
-                        {
-                          "id": "41"
-                          ,"username": "李一玄"
-                          ,"time": "27.72"
-                          ,"wcaid": "2019LIYI07"
-                        },{
-                          "id": "42"
-                          ,"username": "郑炯熙"
-                          ,"time": "32.10"
-                          ,"wcaid": "2019ZHEN42"
-                        },{
-                          "id": "43"
-                          ,"username": "谢迅权"
-                          ,"time": "33.24"
-                          ,"wcaid": "2018XIEX01"
-                        },{
-                          "id": "44"
-                          ,"username": "张栋汕"
-                          ,"time": "37.30"
-                          ,"wcaid": "2018ZHAD08"
-                        },{
-                          "id": "45"
-                          ,"username": "李锐君"
-                          ,"time": "41.07"
-                          ,"wcaid": "2019LIRU03"
-                        },{
-                          "id": "46"
-                          ,"username": "陈浩鑫"
-                          ,"time": "42.40"
-                          ,"wcaid": "2019CHEH04"
-                        },{
-                          "id": "47"
-                          ,"username": "杨恒"
-                          ,"time": "45.18"
-                          ,"wcaid": "2019YANH04"
-                        },{
-                          "id": "48"
-                          ,"username": "谢沁润"
-                          ,"time": "49.72"
-                          ,"wcaid": "2019XIEQ03"
-                        },{
-                          "id": "49"
-                          ,"username": "唐梓泓"
-                          ,"time": "50.21"
-                          ,"wcaid": "2019TANG22"
-                        },{
-                          "id": "50"
-                          ,"username": "聂伟"
-                          ,"time": "1:11.07"
-                          ,"wcaid": "2018NIEW03"
-                        },
-                         ]
-                        //,skin: 'line' //表格风格
-                        ,even: true
-                        ,page:true
-                        ,limits: [5, 10, 20,50]
-                        ,limit: 10 //每页默认显示的数量
-                      });
-                    });
+    </div>
 
+    
+            
 
-      layui.use(['table'],function(){
-      table = layui.table;         
-      table.on('tool(average)', function(obj){
-  var layEvent = obj.event,
-      data = obj.data;
-      window.location.href="https://cubingchina.com/results/person/"+data.wcaid;
+                  
+        <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>       
+layui.use(['table'],function(){
+table = layui.table;         
+table.on('tool(cuberank)', function(obj){
+var layEvent = obj.event,
+data = obj.data;
+window.location.href="https://cubingchina.com/results/person/"+data.wcaid;
 });
 
 
-table.on('tool(single)', function(obj){
-  var layEvent = obj.event,
-      data = obj.data;
-
-      window.location.href="https://cubingchina.com/results/person/"+data.wcaid;
-});
-                    })
-</script>
-                  </div>
-                </div>
-        </div> 
-
-        
-
-
+        })
+</script>                 
 </body>
 </html>

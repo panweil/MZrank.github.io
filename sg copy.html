@@ -1,0 +1,134 @@
+<html>
+  <head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./layui/css/layui.css">
+
+		<style type="text/css">
+			ul{bottom: 0; top: 0;}
+			.main{margin-left: 200px; position: absolute; right: 0; left: 0;}
+			.main #view1{width: 93%; position: relative;}
+			.main > button{margin-left: 20px; margin-top: 20px;}
+			.layui-layer-tips .layui-layer-content{
+				background-color: transparent;
+			}
+			
+		</style>
+		<script src="./layui/jquery.min.js"></script>
+		<script type="text/javascript">
+			//为了保证不出现一闪而过的菜单栏, 放在了前面进行加载这段代码
+			$().ready(() => {
+				var a = $('.dynamic-navigation');			
+				localStorage.getItem('nav-status') == 1 ? (
+					$('.dynamic-navigation').attr("tg", "1").css('left', '-200px'),
+					$('.layui-layer-tips').css('left', '89px')
+				) : (
+					console.log(localStorage.getItem('nav-status'))
+				);
+				
+			});
+		</script>
+	<link id="layuicss-layer" rel="stylesheet" href="https://faysunshine.com/layui/nav/UI/layui-v2.1.5/layui/css/modules/layer/default/layer.css?v=3.1.0" media="all"></head>
+
+	<body class="layui-layout">
+
+			<ul class="layui-nav layui-nav-tree layui-nav-side dynamic-navigation" lay-filter="test" style="position: fixed; left: 0px;"> 
+
+
+					<!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+					  <li class="layui-nav-item layui-nav-itemed">
+						<a href="javascript:;">MZrank</a>
+						<dl class="layui-nav-child">
+						  <dd><a  href="javascript:;" name="t1" id="1" title="三阶速拧" content="./table/3.html">三阶速拧</a></dd>
+						  <dd><a href="javascript:;" name="t1" id="2" title="二阶速拧" content="./table/2.html">二阶速拧</a></dd>
+						  <dd><a href="javascript:;"  name="t1" id="3" title="四阶速拧" content="./table/4.html">四阶速拧</a></dd>
+						  <dd><a href="javascript:;" name="t1" id="4" title="五阶速拧" content="./table/5.html">五阶速拧</a></dd>
+						  <dd><a href="javascript:;" name="t1" id="5" title="六阶速拧" content="./table/6.html">六阶速拧</a></dd>
+						  <dd><a href="javascript:;" name="t1" id="6" title="七阶速拧" content="./table/7.html">七阶速拧</a></dd>
+						  <dd><a href="javascript:;" name="t1" id="7" title="三阶盲拧" content="./table/3bf.html">三阶盲拧</a></dd>
+						  <dd><a href="javascript:;" name="t1" id="8" title="最少步" content="./table/3fm.html">最少步</a></dd>
+						  <dd><a href="javascript:;" name="t1" id="9" title="三阶单手" content="./table/3oh.html">三阶单手</a></dd>
+						  <dd><a href="javascript:;" name="t1" id="10" title="脚拧" content="./table/3wf.html">脚拧</a></dd>
+						  <dd><a href="javascript:;" name="t1" id="11" title="魔表" content="./table/clock.html">魔表</a></dd>
+						  <dd><a href="javascript:;" name="t1" id="12" title="五魔方" content="./table/mega.html">五魔方</a></dd>
+						  <dd><a href="javascript:;" name="t1" id="13" title="金字塔" content="./table/py.html">金字塔</a></dd>
+						  <dd><a href="javascript:;" name="t1" id="14" title="斜转" content="./table/sk.html">斜转</a></dd>
+						  <dd><a href="javascript:;" name="t1" id="15" title="SQ1" content="./table/SQ1.html">SQ1</a></dd>
+						  <dd><a href="javascript:;" name="t1" id="16" title="四盲" content="./table/4bf.html">四盲</a></dd>
+						  <dd><a href="javascript:;" name="t1" id="17" title="五盲" content="./table/5bf.html">五盲</a></dd>
+						  <dd><a href="javascript:;" name="t1" id="18" title="多盲" content="./table/mbf.html">多盲</a></dd>
+						</dl>
+					  </li>
+					  <li class="layui-nav-item">
+						<a href="javascript:;">友情链接</a>
+						<dl class="layui-nav-child">
+						  <dd><a href="https://www.cubingchina.com">粗饼网</a></dd>
+						  <dd><a href="https://cstimer.net">cstimer</a></dd>
+						</dl>
+					  </li>
+			  
+					</ul>
+
+		<span class="layui-nav-bar" style="top: 22.5px; height: 0px; opacity: 0;"></span></ul>
+		
+		<div class="main dynamic-navigation" style="left: 0px;">
+			<button class="layui-btn layui-btn-primary"><i class="layui-icon"></i></button>
+			<div class="layui-body show-frame " style="">
+					<div class="layui-tab layui-tab-brief" lay-allowClose="true" lay-filter="empTab">
+					<ul class="layui-tab-title">
+						<li class="layui-this "><i class="layui-icon">&#xe68e欢迎访问</i></li>
+					</ul>
+					<div class="layui-tab-content">
+						<div class="layui-tab-item layui-show"><h1 style="color: #5FB878">欢迎访问MZrank</h1></div>
+					</div>
+				</div>
+				</div>
+		
+		</div>
+
+
+
+		
+
+		<script src="./layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+		
+		
+		<script type="text/javascript">
+			layui.use(['element', 'layer'], () => {
+				var element = layui.element;
+				element.init();
+				
+				$('body').on('click', '.main>button', () => {
+					var a = $('.dynamic-navigation');
+					var b = $('.layui-layer-tips');
+					a && (a.attr("tg") ? (a.animate({
+						left: 0,
+						opacity: "show"
+					}, 500), a.removeAttr("tg"), b.animate({
+						left: 289,
+						opacity: "show"
+					}, 500)) : (a.animate({
+						left: -200,
+						opacity: "show"
+					}, 500), a.attr("tg", "1"), b.animate({
+						left: 89,
+						opacity: "show"
+					}, 500)));
+					
+					//分开写了
+					a && (a.attr("tg") ? (
+						localStorage.setItem('nav-status', 1)
+					) : (
+						localStorage.setItem('nav-status', 0)
+					));
+					
+				});
+				
+
+				
+				
+			})
+		</script>
+		
+	
+	

@@ -1,0 +1,32 @@
+{
+    "code": 0,
+    "msg": "single",
+    "count": 6,
+    "data":  [{
+        "username": "罗绿翔"
+         ,"single": 84.66
+         ,"avg": 91.49
+         ,"wcaid": "2018LUOL03"
+       }, {
+         "username": "黄回君"
+         ,"single": 87.28
+         ,"avg": 96.82
+         ,"wcaid": "2015HUAN39"
+       }, {"username": "杨宇煌"
+         ,"single": 87.63
+         ,"avg": 91.23
+         ,"wcaid": "2017YANG16"
+       }, {
+         "username": "操源"
+         ,"single": 140.57
+         ,"wcaid": "2016CAOY01"},{
+         "username": "彭伟聪"
+         ,"single": 165.88
+         ,"wcaid": "2015PENG05"
+       }, {
+         "username": "蔡彦"
+         ,"single": 198.58
+         ,"wcaid": "2009CAIY02"
+       }
+       ]
+}
