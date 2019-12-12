@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>三阶盲拧</title>
+  <title>三盲</title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -15,65 +15,66 @@
   <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
 </head>
 <body>
+<div class="layui-layout layui-layout-admin">
 
-        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
-                <ul class="layui-tab-title">
-
-                  <li class="layui-this">三阶盲拧单次</li>
-
-
-                  <li>三阶盲拧平均</li>
-
-
-
-                </ul>
-                <div class="layui-tab-content" style="height: 100px;">
-                  <div class="layui-tab-item layui-show">
                       
-                        <fieldset class="layui-elem-field site-demo-button">
-                                <div>
-                                        <a href="https://cubingchina.com/results/rankings?region=China&event=333bf&gender=all&type=single">
-                                          <button type="button" class="layui-btn layui-btn-radius layui-btn-lg">中国三盲单次排名</button></a>
-                                        <a href="https://cubingchina.com/results/rankings?region=World&event=333bf&gender=all&type=single">
-                                          <button type="button" class="layui-btn layui-btn-normal layui-btn-radius layui-btn-lg" 
-                                          style="float:right">世界三盲单次排名</button></a>
-                                </div>
-                        </fieldset>
-                
+  <fieldset class="layui-elem-field site-demo-button">
+
+                  <a href="https://cubingchina.com/results/rankings?region=China&event=333bf&gender=all&type=single">
+                    <button type="button" class="layui-btn layui-btn-radius layui-btn-lg">中国三盲单次排名</button></a>
+                    <a href="https://cubingchina.com/results/rankings?region=China&event=333bf&gender=all&type=average">
+                      <button type="button" class="layui-btn layui-btn-radius layui-btn-lg">中国三盲平均排名</button></a>
+
+
+                      <a href="https://cubingchina.com/results/rankings?region=World&event=333bf&gender=all&type=average">
+                        <button type="button" class="layui-btn layui-btn-normal layui-btn-radius layui-btn-lg" 
+                        style="float:right">世界三盲平均排名</button></a>
+                  <a href="https://cubingchina.com/results/rankings?region=World&event=333bf&gender=all&type=single">
+                    <button type="button" class="layui-btn layui-btn-normal layui-btn-radius layui-btn-lg" 
+                    style="float:right">世界三盲单次排名</button></a>
+
+
+  </fieldset>
+
+            
+        <table class="layui-hide" id="cuberank"  lay-filter="cuberank"></table>
+        <script type="text/html" id="ListBar">
+          <a class="layui-btn layui-btn-xs" lay-event="showindex">查看粗饼主页</a>
+        </script>
                         
-                    <table class="layui-hide" id="single"  lay-filter="single"></table>
-                    <script type="text/html" id="ListBar">
-                      <a class="layui-btn layui-btn-xs" lay-event="showindex">查看粗饼主页</a>
-                    </script>
-                                   
-                              
-                    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
-                    <script>
-                    layui.use('table', function(){
-                      var table = layui.table;
-                      
-                      //展示已知数据
-                      table.render({
-                        elem: '#single',
-                        toolbar:'true'
-                        ,cols: [[ //标题栏
-                          {field: 'id', title: '排名',  sort: true}
-                          ,{field: 'username', title: '姓名'}
-                          ,{field: 'time', title: '时间'}
-                          ,{title: '操作',  toolbar:'#ListBar',fixed:"right",align:"center"}
-                        ]]
-                        ,data: [
-                          
-                        ]
-                        //,skin: 'line' //表格风格
-                        ,even: true
-                        ,page: true //是否显示分页
-                        ,limits: [5, 10, 20,50]
-                        ,limit: 10 //每页默认显示的数量
-                      });
-                    });
-                    </script>
-                
+                  
+        <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+        <script>
+        layui.use('table', function(){
+          var table = layui.table;
+          
+          //展示已知数据
+          table.render({
+            elem: '#cuberank',
+            toolbar:'true',
+            url:'../user/3bf.json',
+            initSort: {
+                  field: 'single' //排序字段，对应 cols 设定的各字段名
+                  ,type: 'asc' //排序方式  asc: 升序、desc: 降序、null: 默认排序
+                      }           
+            ,cols: [[ //标题栏
+              {field: 'rank', title: '排名',  sort: true,type:'numbers',align:"center",fixed:"left",width:70}
+              ,{field: 'username', title: '姓名',align:"center"}
+              ,{field: 'single', title: '单次', align:"center",sort:true}
+              ,{field: 'avg', title: '平均', align:"center",sort:true}
+              ,{title: '操作',  toolbar:'#ListBar',fixed:"right",align:"center"}
+            ]]
+            ,data: [
+            ]
+            //,skin: 'line' //表格风格
+            ,even: true
+            ,page: true //是否显示分页
+            ,limits: [10, 20,50]
+            ,limit: 20 //每页默认显示的数量
+          });
+        });
+        </script>
+    
 
 
 
@@ -81,79 +82,24 @@
 
 
 
-                </div>
-                  <div class="layui-tab-item">
-                        <fieldset class="layui-elem-field site-demo-button">
-                                <div>
-                                        <a href="https://cubingchina.com/results/rankings?region=China&event=333bf&gender=all&type=average">
-                                            <button type="button" class="layui-btn layui-btn-radius layui-btn-lg">中国三盲平均排名</button>
-                                        </a>
-                                        <a href="https://cubingchina.com/results/rankings?region=World&event=333bf&gender=all&type=average">
-                                            <button type="button" class="layui-btn layui-btn-normal layui-btn-radius layui-btn-lg" style="float:right">世界三盲平均排名</button>
-                                        </a>
-                                </div>
-                        </fieldset>
-                
-                        
-                    <table class="layui-hide" id="average" lay-filter="average"></table>
-                    <script type="text/html" id="ListBar">
-                      <a class="layui-btn layui-btn-xs" lay-event="showindex">查看粗饼主页</a>
-                    </script>
-                                   
-                              
-                    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
-                    <script>
-                    layui.use('table', function(){
-                      var table = layui.table;
-                      
-                      //展示已知数据
-                      table.render({
-                        elem: '#average',
-                        //url:'../user/3.json',
-                        
-                        toolbar: 'true',
-                        
-                        title:"三阶盲拧平均"
-                        ,cols: [[ //标题栏
-                        {field: 'id', title: '排名',  sort: true}
-                          ,{field: 'username', title: '姓名'}
-                          ,{field: 'time', title: '时间'}
-                          ,{title: '操作',  toolbar:'#ListBar',fixed:"right",align:"center"}
-                        ]]
-                       , data: [
-                         ]
-                        //,skin: 'line' //表格风格
-                        ,even: true
-                        ,page:true
-                        ,limits: [5, 10, 20,50]
-                        ,limit: 10 //每页默认显示的数量
-                      });
-                    });
+    </div>
 
+    
+            
 
-      layui.use(['table'],function(){
-      table = layui.table;         
-      table.on('tool(average)', function(obj){
-  var layEvent = obj.event,
-      data = obj.data;
-      window.location.href="https://cubingchina.com/results/person/"+data.wcaid;
+                  
+        <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>       
+layui.use(['table'],function(){
+table = layui.table;         
+table.on('tool(cuberank)', function(obj){
+var layEvent = obj.event,
+data = obj.data;
+window.location.href="https://cubingchina.com/results/person/"+data.wcaid;
 });
 
 
-table.on('tool(single)', function(obj){
-  var layEvent = obj.event,
-      data = obj.data;
-
-      window.location.href="https://cubingchina.com/results/person/"+data.wcaid;
-});
-                    })
-</script>
-                  </div>
-                </div>
-        </div> 
-
-        
-
-
+        })
+</script>                 
 </body>
 </html>
